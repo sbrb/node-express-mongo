@@ -6,6 +6,13 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+mongoose.set('strictQuery', true);
+mongoose.connect('mongodb+srv://riju:riju@cluster0.s4hmv.mongodb.net/Auth-2', {
+    useNewUrlParser: true
+})
+    .then(() => console.log('MongoDb is connected'))
+    .catch(err => console.log(err));
+
 app.use('/', route)
 
 app.listen(process.env.PORT || 3000, () => {
