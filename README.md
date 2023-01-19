@@ -8,13 +8,13 @@
 Think of this like getting an ID card the first day of your college and then showing that to a guard seated outside your college's campus gate in future. By showing them this token you are confirming your identity to them. Only a legitimate(valid) student who has taken the admission can own an official ID card.
 
 ## Assignment
-- For this assignment you have to create a new branch- auth-2
+- For this assignment you have to create a new branch - assignment/auth-1
 - Your user document should look like this
 ```
  	{
     "_id" : ObjectId("6226e3d2b98f22b349ca58be"),
     "firstName" : "Shayan",
-    "lastName" : "Bisaws",
+    "lastName" : "Biswas",
     "mobile" : "9898909087",
     "emailId" : "sb@gmail.com",
     "password" : "password123",
@@ -49,9 +49,9 @@ If present, check that the token is valid.
 
 
 ```diff
-+ Please note that you have to also write the logic for authorization now so that a logged in user can modify or fetch ONLY their own data.
-+ You have to implement authorization for fetch user details, update user and delete user apis
-+ Run this code and ensure the authorization works fine for all the apis before following the next requirement
++ Please note that you have to also write the logic for authorisation now so that a logged in user can modify or fetch ONLY their own data.
++ You have to implement authorisation for fetch user details, update user and delete user apis
++ Run this code and ensure the authorisation works fine for all the apis before following the next requirement
 + You now have to move this similar code in all the three apis in a suitable middleware
 
 ``` 

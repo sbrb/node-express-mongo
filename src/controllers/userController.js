@@ -49,4 +49,4 @@ const postMassage = async (req, res) => {
   res.send({ status: true, data: postMassage });
 };
 
-module.exports = { createUser, loginUser, getUserData, updateUser, deleteUser, postMassage }
+module.exports = { createUser, loginUser, getUserData, updateUser, deleteUser, postMassage };
