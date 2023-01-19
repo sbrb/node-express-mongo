@@ -1,8 +1,8 @@
 # Promise has typically 3 states
 - Pending : not awaited and hence has not completed yet ( e.g. typically when you dont await an axios or db call)
 - Rejected: When promise failed ( wrong url | server down etc)
-- Fulfilled: Promise completed succesfully (e.g. db call has completed and returned a result succesfully)
-// - settled : referes to a combination of either rejhected or fulfilled
+- Fulfilled: Promise completed successfully (e.g. db call has completed and returned a result succesfully)
+// - settled : referees to a combination of either rejected or fulfilled
 
 
 # What is a promise:
@@ -13,9 +13,9 @@
 
 
 
-// GIT link..go thourgh this code thoroughly..it will result in a confusion when you are going though the code- postman se hit kar rhe hai and same axios se bhi hit kar rhe hai ..why?
+// GIT link..go though this code thoroughly..it will result in a confusion when you are going though the code- postman se hit kar rhe hai and same axios se bhi hit kar rhe hai ..why?
 // a short video ..4-5 mins  summary on what we covered today
-// An asignment :
+// An assignment :
 1.  WRITE A GET API TO GET THE LIST OF ALL THE "vaccination sessions by district id" for any given district id and for any given date
 2.  GOTO  http://api.openweathermap.org => “subscribe” current weather data ==> get api key for Free version ==> create new account and Verify your emailId( Must verify to avoid issues) => go to My APi keys under your account name(top right corner) or https://home.openweathermap.org/api_keys => save the key/appid somewhere. Now proceed further
 Create API's to do each of the following:

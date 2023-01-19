@@ -1,37 +1,60 @@
-const axios = require('axios');
-//getAllMemes
-const getAllMemes = async (req, res) => {
+const axios = require('axios')
+//getWeatherAll
+//getWeatherAll
+const getWeatherAll = async (req, res) => {
   try {
-    const options = {
+    const city = req.query.q;
+    const appid = req.query.appid;
+    const option = {
       method: 'get',
-      url: 'https://api.imgflip.com/get_memes'
+      url: `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${appid}`
     }
-    const result = await axios(options);
-    console.log(options);
-    const data = result.data
-    res.status(200).send({ msg: data, status: true })
+    const result = await axios(option)
+    console.log(result);
+    res.status(200).send({ msg: result.data }) //get all data of city
   }
-  catch (err) {
-    res.status(500).send({ msg: err.message })
+  catch (error) {
+    res.status(500).send({ msg: error.message })
   }
 }
-//createMeme
-const createMeme = async (req, res) => {
+//getWeatherTemp
+const getWeatherTemp = async (req, res) => {
   try {
-    const template_id = req.query.template_id;
-    const text0 = req.query.text0
-    const text1 = req.query.text1
-    const username = req.query.username;
-    const password = req.query.password;
-    const options = {
-      method: 'post',
-      url: `https://api.imgflip.com/caption_image?template_id=${template_id}&text0=${text0}&text1=${text1}&username=${username}&password=${password}`
+    const city = req.query.q;
+    const appid = req.query.appid;
+    const option = {
+      method: 'get',
+      url: `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${appid}`
     }
-    const result = await axios(options)
-    res.status(200).send({ msg: result.data, status: true })
+    const result = await axios(option)
+    res.status(200).send({ msg: result.data.main.temp }) //get only temp of city
+  }
+  catch (error) {
+    res.status(500).send({ msg: error.message })
+  }
+};
+
+//arrangeByTemp
+const arrangeByTemp = async (req, res) => {
+  try {
+    const cities = ['Bengaluru', 'Mumbai', 'Delhi', 'Kolkata', 'Chennai', 'London', 'Moscow'];
+    const cityArr = [];
+    for (let i = 0; i < cities.length; i++) {
+      const options = {
+        method: 'get',
+        url: `http://api.openweathermap.org/data/2.5/weather?q=${cities[i]}&appid=3db52f1d8ab59f13bae754e08f840281`
+      }
+      result = await axios(options)
+      cityArr[i] = { city: result.data.name, temp: result.data.main.temp }
+      console.log(cityArr);
+      
+    }
+    const output = cityArr.sort((a, b) => (a.temp - b.temp));
+    res.status(200).send({ msg: output })
   }
   catch (err) {
     res.status(500).send({ error: err.message })
   }
 }
-module.exports = { getAllMemes, createMeme }
+
+module.exports = { getWeatherAll, getWeatherTemp, arrangeByTemp }
