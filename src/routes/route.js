@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const userController = require('../controllers/userController');
-const middleware = require('../middleware/commonMiddleware');
+const controller = require('../controllers/controller');
 
-router.post('/users', userController.createUser);
-router.post('/login', userController.loginUser);
-router.get('/users/:userId', middleware.tokenVerification, userController.getUserData);
-router.put('/users/:userId', middleware.tokenVerification, userController.updateUser);
-router.delete('/users/:userId', middleware.tokenVerification, userController.deleteUser);
-router.post('/users/:userId/post', middleware.tokenVerification, userController.postMassage);
+router.get('/getState', controller.getStates);
+router.get('/getDistricts/:stateId', controller.getDistricts);
+router.get('/getByPin', controller.getByPin);
+router.post('/getOtp', controller.getOtp);
+router.post('/confirmOTP', controller.confirmOTP);
+//Assignment
+router.get('/getDistrictId', controller.getDistrictId);
 
 module.exports = router;

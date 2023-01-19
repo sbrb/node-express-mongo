@@ -1,57 +1,48 @@
-# TOPIC: Authentication
-
-## Authentication with JWT
-- Token generation
-- Token verification
-
-*Note:* Remember that authentication means validating the identity of a user. Both token generation and verification together implement authentication. 
-Think of this like getting an ID card the first day of your college and then showing that to a guard seated outside your college's campus gate in future. By showing them this token you are confirming your identity to them. Only a legitimate(valid) student who has taken the admission can own an official ID card.
-
-## Assignment
-- For this assignment you have to create a new branch - assignment/auth-1
-- Your user document should look like this
-```
- 	{
-    "_id" : ObjectId("6226e3d2b98f22b349ca58be"),
-    "firstName" : "Shayan",
-    "lastName" : "Biswas",
-    "mobile" : "9898909087",
-    "emailId" : "sb@gmail.com",
-    "password" : "password123",
-    "gender" : "female",
-	"isDeleted": false, //default value is false 
-    "age" : 12,
-    "createdAt" : ISODate("2022-03-08T05:04:18.737Z"),
-    "updatedAt" : ISODate("2022-03-08T05:04:18.737Z"),
-    "__v" : 0
-}
-```
+# Promise has typically 3 states
+- Pending : not awaited and hence has not completed yet ( e.g. typically when you dont await an axios or db call)
+- Rejected: When promise failed ( wrong url | server down etc)
+- Fulfilled: Promise completed succesfully (e.g. db call has completed and returned a result succesfully)
+// - settled : referes to a combination of either rejhected or fulfilled
 
 
-- Write a **POST api /users** to register a user from the user details in request body. 
-- Write a ***POST api /login** to login a user that takes user details - email and password from the request body. If the credentials don't match with any user's data return a suitable error.
-On successful login, generate a JWT token and return it in response body. Example 
-```
-{
-    status: true,
-    data: {
-        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-
-    }
- }
-```
-- Write a **GET api /users/:userId** to fetch user details. Pass the userId as path param in the url. Check that request must contain **x-auth-token** header. If absent, return a suitable error.
-If present, check that the token is valid.
-- Write a **PUT api /users/:userId** to update user details. Pass the userId as path param in the url and update the attributes received in the request body. Check that request must contain **x-auth-token** header. If absent, return a suitable error.
-- Write a **DELETE api /users/:userId** that takes the userId in the path params and marks the isDeleted attribute for a user as true. Check that request must contain **x-auth-token** header. If absent, return a suitable error.
-- Once, all the apis are working fine, move the authentication related code in a middleware called auth.js
-- Add this middleware at route level in the routes where applicable.
+# What is a promise:
+- layman's definition: It is something in JS that tells us whether an operation has completed or not (pending)
+- technical definition: it is a JS object that represents whether an asynchronous operation(like db or axios call) is completed or not
 
 
-```diff
-+ Please note that you have to also write the logic for authorisation now so that a logged in user can modify or fetch ONLY their own data.
-+ You have to implement authorisation for fetch user details, update user and delete user apis
-+ Run this code and ensure the authorisation works fine for all the apis before following the next requirement
-+ You now have to move this similar code in all the three apis in a suitable middleware
 
-``` 
+
+
+// GIT link..go thourgh this code thoroughly..it will result in a confusion when you are going though the code- postman se hit kar rhe hai and same axios se bhi hit kar rhe hai ..why?
+// a short video ..4-5 mins  summary on what we covered today
+// An asignment :
+1.  WRITE A GET API TO GET THE LIST OF ALL THE "vaccination sessions by district id" for any given district id and for any given date
+2.  GOTO  http://api.openweathermap.org => “subscribe” current weather data ==> get api key for Free version ==> create new account and Verify your emailId( Must verify to avoid issues) => go to My APi keys under your account name(top right corner) or https://home.openweathermap.org/api_keys => save the key/appid somewhere. Now proceed further
+Create API's to do each of the following:
+                    - get weather of London from http://api.openweathermap.org/data/2.5/weather?q=London&appid=<useYourOwnAppId>  (NOTE: must use HTTP infront of the url else axios will attempt to hit localhost and give error  ..also use HTTP only and not HTTPS)
+                    - then change the above to get the temperature only( of London)
+                    - Sort the cities  ["Bengaluru","Mumbai", "Delhi", "Kolkata", "Chennai", "London", "Moscow"] in order of their increasing temperature
+                    result should look something like this
+                    [
+                    {city:"London", temp: 280},
+                    {city:"Moscow", temp: 290},
+                    {city:"Bangalore", temp: 301.2},
+                    .......
+                    ]
+
+3. Axios POST request assignment
+
+            1. Get all the memes at Postman (https://api.imgflip.com/get_memes)
+            2. Pick a memeId you want (Eg 129242436) for the POST request
+            3. Create a Post request (https://api.imgflip.com/caption_image) with only query params. Following are the params (copy username and password exactly as given below):
+            template_id <meme_id>
+            text0 <text you want as a caption>
+            text1 <optional>
+            username chewie12345
+            password meme@123
+
+            4. Return a response with a body like this
+            "data": {
+                    "url": "https://i.imgflip.com/5mvxax.jpg",
+                    "page_url": "https://imgflip.com/i/5mvxax"
+                }
