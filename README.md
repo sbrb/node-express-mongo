@@ -13,10 +13,10 @@ Think of this like getting an ID card the first day of your college and then sho
 ```
  	{
     "_id" : ObjectId("6226e3d2b98f22b349ca58be"),
-    "firstName" : "Sabiha",
-    "lastName" : "Khan",
+    "firstName" : "Shayan",
+    "lastName" : "Biswas",
     "mobile" : "9898909087",
-    "emailId" : "sk@gmail.com",
+    "emailId" : "sb@gmail.com",
     "password" : "password123",
     "gender" : "female",
 	"isDeleted": false, //default value is false 
