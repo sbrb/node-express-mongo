@@ -1,110 +1,21 @@
 # Assignment
 
-Assignments(Structure of the routes file would look like what is given at the bottom of the document):
-You have to write a POST apis:
-Write the api in first project directory (Routes/index.js or routes/route.js)
-Problem Statement 1 :
-NOTE: you must create the players array outside( on the top ) of the api( so that data is maintained across api hits )
-Your player collection should be an ARRAY of player objects. Each player object should have the following attributes:
-
-
+✅ You will be given an array of person (array of objects)
+✅ Each person will have a
 {
-"name": "manish",
-"dob": "1/1/1995",
-"gender": "male",
-"city": "jalandhar",
-"sports": [
-"swimming"
-]
+    name: String,
+    age: Number,
+    votingStatus: false/true(Boolean)
 }
+✅ Take input in query param as a votingAge and for all the people above that age change voteStatus as true.
+✅ Also return an array constricting of only the person that can vote.
+✅ write post API to the above.
+✅ Take this as a sample of array of person:-
 
-
-e.g. the players array would look like this:
-
-let players =
-   [
-   
-       {
-           "name": "manish",
-           "dob": "1/1/1995",
-           "gender": "male",
-           "city": "jalandhar",
-           "sports": [
-               "swimming"
-           ]
-       },
-       
-       
-       {
-           "name": "gopal",
-           "dob": "1/09/1995",
-           "gender": "male",
-           "city": "delhi",
-           "sports": [
-               "soccer"
-           ]
-       },
-       
-       {
-           "name": "lokesh",
-           "dob": "1/1/1990",
-           "gender": "male",
-           "city": "mumbai",
-           "sports": [
-               "soccer"
-           ]
-       }, 
-   ]
-
-Write a POST /players api that creates a new player ( i.e. that saves a player’s details and doesn’t allow saving the data of a player with a name that already exists in the data)
-NOTE: you must create the players array outside( on the top ) of the api( so that data is maintained across api hits)
-—----------------
-The file inside routes would look like this:
-
-
-const express = require('express');
-const router = express.Router();
-
-let players =
-   [
-   
-       {
-           "name": "manish",
-           "dob": "1/1/1995",
-           "gender": "male",
-           "city": "jalandhar",
-           "sports": [
-               "swimming"
-           ]
-       },
-       
-       {
-           "name": "gopal",
-           "dob": "1/09/1995",
-           "gender": "male",
-           "city": "delhi",
-           "sports": [
-               "soccer"
-           ],
-       },
-       
-       {
-           "name": "lokesh",
-           "dob": "1/1/1990",
-           "gender": "male",
-           "city": "mumbai",
-           "sports": [
-               "soccer"
-           ],
-       },  
-   ]
-   
-   router.post('/players', (req, res) => {
-   
-       //LOGIC WILL COME HERE
-       res.send(  { data: players , status: true }  )
-       
-   })
-   
-module.exports = router;
-
+let persons = [
+  { name: "PK", age: 10, votingStatus: false },
+  { name: "SK", age: 20, votingStatus: false },
+  { name: "AA", age: 70, votingStatus: false },
+  { name: "SC", age: 5, votingStatus: false },
+  { name: "HO", age: 40, votingStatus: false },
+];
