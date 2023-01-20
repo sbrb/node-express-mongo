@@ -1,12 +1,26 @@
 const express = require('express');
-const router = express.Router();
-const productController = require('../controllers/productController');
-const userController = require('../controllers/userController');
-const orderController = require('../controllers/orderController');
-const middleware = require('../middleware/middleware');
 
-router.post('/createProduct', productController.createProduct);
-router.post('/createUser', middleware.validation, userController.createUser);
-router.post('/createOrder', middleware.validation, orderController.createOrder);
+const logg = require('../logger/logger');
+const help = require('../util/helper');
+const val = require('../validator/formatter');
+const riju = require('../Content/hi');
+
+const router = express.Router();
+
+router.get('/test-me', (req, res)=> {
+  // logger
+  logg.welcome();
+  // util
+  help.printDate();
+  help.printMonth();
+  help.getBatchInfo();
+  // validator
+  val.trim();
+  val.changetoLowerCase();
+  val.changeToUpperCase();
+
+  // API Response
+  res.send(riju.first);
+});
 
 module.exports = router;
