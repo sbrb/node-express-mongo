@@ -1,20 +1,17 @@
-# assignment
-Lik:- https://docs.google.com/document/d/1ENP1i_wdh5IZvVnD2WAzl6F50P8dEPD94t1nCNLi2Oo/edit
+# Assignment :
+https://docs.google.com/document/d/1afgPZSzSy1qgIP_iNJAVhZQD8eS-OJDxu8FpE0CzK5w/edit
 
-1. Make sure you have cloned this branch using  
-   “https://github.com/sabihak89/plutonium.git“
-   Then switch to the branch where I have pushed all the code from today
-   git fetch
-   git checkout session/mongo-session1
-   git pull
-2. Now you have updated code from today in your visual studio code. Go through the entire code atleast 5 times. The video below will help you give a brief explanation on    the code( watch the video again and again)
-   https://drive.google.com/file/d/19scLKaG_P1-9SOB9ddn0E31Uzyh12lJ8/view?usp=sharing 
-3. On similar lines as above(today’s mongodb session APIs), complete this assignment and submit explainer video for the same : Create a bookSchema with bookName,            authorName, category and year . Create same 2 api's for books i.e. : 1 api to create a new book and another api to get the list of all books. 
-4. Go through the following resources :
-   Read Mongoose from here: https://mongoosejs.com/docs/index.html 
-   Then headover to guide section(on left side navigation pane) and read page by page ( as many pages as you can)
+Create a books collection in your DB ( using bookModel with following fields)- bookName( mandatory field), price containing Indian and european price, year ( should be 2021 if no year is provided) , tags array, authorName, totalPages , stockAvailable ( true false) 
 
+create the following API’s (write logic in bookController and routes in routes):
+createBook : to create a new entry..use this api to create 11+ entries in your collection
+bookList : gives all the books- their bookName and authorName only 
+getBooksInYear: takes year as input in post request and gives list of all books published that year
+getParticularBooks:- (this is a good one, make sincere effort to solve this) take any input and use it as a condition to fetch books that satisfy that condition
+e.g if body had { name: “hi”} then you would fetch the books with this name
+if body had { year: 2020} then you would fetch the books in this year
+hence the condition will differ based on what you input in the request body
+getXINRBooks- request to return all books who have an Indian price tag of “100INR” or “200INR” or “500INR” 
+getRandomBooks - returns books that are available in stock or have more than 500 pages 
 
-
-Note: the following video is a good synopsis on stuff we have covered over the week. Go through this incase you are struggling a lot( https://www.youtube.com/watch?v=eYVGoXPq2RA 
-)
+Find video explanation of the question here : https://drive.google.com/file/d/1D9UOEl5rbGGDPjVLDGsf1L4hg9BI1ZH7/view?usp=sharing 
