@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 mongoose.set('strictQuery', true);
-mongoose.connect('mongodb+srv://riju:riju@cluster0.s4hmv.mongodb.net/Auth-1', {
+mongoose.connect('mongodb+srv://riju:riju@cluster0.s4hmv.mongodb.net/middleware', {
     useNewUrlParser: true
 })
     .then(() => console.log('MongoDb is connected'))
